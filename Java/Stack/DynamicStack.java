@@ -46,13 +46,24 @@ public class DynamicStack {
     private void shrink()
     {
         int length = size();
-        if(length <= (capacity/2)/2);
+        if(length <= capacity/4 && capacity > 2)
+        {
         capacity = capacity/2;
 
         int newStack[] = new int[capacity];
          System.arraycopy(stack,0,newStack,0,length);
+//           public static void arraycopy(Object source_arr, int sourcePos,
+//                             Object dest_arr, int destPos, int len)
+// Parameters : 
+// source_arr : array to be copied from
+// sourcePos : starting position in source array from where to copy
+// dest_arr : array to be copied in
+// destPos : starting position in destination array, where to copy in
+// len : total no. of components to be copied. 
+
         stack = newStack;
-        capacity *= 2;
+ 
+        }
 
     }
     
